@@ -1,5 +1,8 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua"))()
+
+if getexecutorname() == "Wave" then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/liam0999/Drawing2/main/Drawing2.lua'))()
+end
 
 local old; old = hookfunction(Drawing.new, function(class, properties)
     local drawing = old(class)
@@ -1745,7 +1748,7 @@ uis.InputBegan:Connect(function(input, gameProcessedEvent)
                 silentclosest = nil
             else
                 silentclosest = utility:getclosestplayertomouse(octoware.aiming.silent.fovradius, octoware.aiming.silent.friendcheck, octoware.aiming.silent.alivecheck, octoware.aiming.silent.visiblecheck,true,true)
-                if silentclosest ~= nil then
+                if silentclosest ~= nil and octoware.aiming.silent.enabled then
                 Library:Notify("WEED HUB | LOCKED ONTO "..tostring(silentclosest):upper(),5)
                 end
             end
